@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import config from "../config";
+import config from "../../config";
 
 export const sendEmail = async (subject: string, to: string, html: string) => {
   const transporter = nodemailer.createTransport({

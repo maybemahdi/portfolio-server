@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS", // Ensure ESNext to work with ES Modules
+    "target": "es2016",
+    "moduleResolution": "node", // Use node resolution strategy
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "outDir": "./dist", // This should be the output directory for compiled code
+    "rootDir": "./src" // This should be the root directory for your TypeScript files
+  },
+  "include": ["src/**/*.ts"], // Include all your TypeScript files
+  "exclude": ["node_modules"]
+}

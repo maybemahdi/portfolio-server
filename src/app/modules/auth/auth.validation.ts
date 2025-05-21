@@ -50,6 +50,19 @@ export const resetPasswordValidationSchema = z.object({
     .min(6, "Password must be at least 6 characters long"),
 });
 
+export const changePasswordValidationSchema = z.object({
+  currentPassword: z
+    .string({
+      required_error: "Current password is required!",
+    })
+    .min(6, "Password must be at least 6 characters long"),
+  newPassword: z
+    .string({
+      required_error: "New password is required!",
+    })
+    .min(6, "Password must be at least 6 characters long"),
+});
+
 // Types inferred from the Zod schemas
 export type RegisterUserValidationType = z.infer<typeof registerUserValidation>;
 export type LoginUserValidationType = z.infer<typeof loginUserValidation>;

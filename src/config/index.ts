@@ -17,8 +17,14 @@ export default {
     reset_pass_token_expires_in: process.env.RESET_PASS_TOKEN_EXPIRES_IN,
   },
   reset_pass_ui_link: process.env.RESET_PASS_UI_LINK,
-  email: process.env.EMAIL,
-  app_password: process.env.PASSWORD,
+  nodemailer: {
+    email: process.env.EMAIL,
+    app_password: process.env.APP_PASSWORD,
+  },
+  resend: {
+    api_key: process.env.RESEND_API_KEY,
+    sender_email: process.env.SENDER_EMAIL,
+  },
   cloudinary_cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   cloudinary_api_key: process.env.CLOUDINARY_API_KEY,
   cloudinary_api_secret: process.env.CLOUDINARY_API_SECRET,

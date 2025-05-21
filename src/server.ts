@@ -2,13 +2,19 @@
 import { Server } from "http";
 import config from "./config";
 import app from "./app";
+import { seedSuperAdmin } from "./app/DB";
 
 let server: Server;
 
 async function main() {
-  server = app.listen(config.port, () => {
-    console.log(`App is listening on port ${config.port}`);
-  });
+  try {
+    await seedSuperAdmin();
+    server = app.listen(config.port, () => {
+      console.log(`App is listening on port ${config.port}`);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 main();

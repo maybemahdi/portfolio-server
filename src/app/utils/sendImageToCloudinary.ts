@@ -14,7 +14,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: async (req, file) => ({
-    folder: "meals", // Store images in 'meals' folder
+    folder: "blogs", // Store images in 'blogs' folder
     format: "png", // Optional: Set file format
     public_id: `${Date.now()}-${file.originalname}`,
   }),

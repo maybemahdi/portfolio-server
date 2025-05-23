@@ -1,15 +1,15 @@
 import { Prisma } from "@prisma/client";
+import httpStatus from "http-status";
 import { paginationHelper } from "../../../helpers/paginationHelper";
 import prisma from "../../../shared/prisma";
 import AppError from "../../errors/AppError";
 import { IPaginationOptions } from "../../interfaces/pagination";
-import {
-  ICreateBlog,
-  IProjectFilterField,
-  IUpdateBlog,
-} from "./blog.interface";
-import httpStatus from "http-status";
 import { blogSearchAbleFields } from "./blog.constant";
+import {
+  IBlogFilterField,
+  ICreateBlog,
+  IUpdateBlog
+} from "./blog.interface";
 
 const createBlog = async (payload: ICreateBlog, userId: string) => {
   const result = await prisma.blog.create({
@@ -31,7 +31,7 @@ const updateBlog = async (
 ) => {
   // Check if the blog exists
   const blog = await prisma.blog.findUnique({
-    where: { id: blogId },
+    where: { id: blogId, isDeleted: false },
   });
 
   if (!blog) {
@@ -48,7 +48,7 @@ const updateBlog = async (
 };
 
 const getAllBlogs = async (
-  params: IProjectFilterField,
+  params: IBlogFilterField,
   options: IPaginationOptions,
 ) => {
   const { page, limit, skip } = paginationHelper.calculatePagination(options);

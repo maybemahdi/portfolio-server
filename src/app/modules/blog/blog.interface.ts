@@ -11,7 +11,7 @@ export interface IUpdateBlog {
   isPublished?: boolean;
 }
 
-export interface IProjectFilterField {
+export interface IBlogFilterField {
   searchTerm?: string;
   isPublished?: string;
 }

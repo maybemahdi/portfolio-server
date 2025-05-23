@@ -7,3 +7,7 @@ export interface IUpdateSkill {
   name?: string;
   logo?: string;
 }
+
+export interface ISkillFilterField {
+  searchTerm?: String;
+}

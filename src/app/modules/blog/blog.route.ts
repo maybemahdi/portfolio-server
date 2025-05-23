@@ -28,7 +28,11 @@ BlogRoutes.patch(
     next();
   },
   validateRequest(UpdateBlogValidation),
-    BlogController.updateBlog,
+  BlogController.updateBlog,
+
+  BlogRoutes.get("/", BlogController.getAllBlogs),
+  BlogRoutes.get("/:id", BlogController.getSingleBlog),
+  BlogRoutes.delete("/:id", auth(), BlogController.deleteBlog),
 );
 
 export default BlogRoutes;

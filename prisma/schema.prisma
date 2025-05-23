@@ -34,3 +34,10 @@ model Blog {
 
   @@map("blogs")
 }
+
+model Skill {
+  id        String  @id @default(uuid())
+  name      String
+  logo      String
+  isDeleted Boolean @default(false)
+}

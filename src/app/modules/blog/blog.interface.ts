@@ -10,3 +10,8 @@ export interface IUpdateBlog {
   thumbnail?: string;
   isPublished?: boolean;
 }
+
+export interface IProjectFilterField {
+  searchTerm?: string;
+  isPublished?: string;
+}

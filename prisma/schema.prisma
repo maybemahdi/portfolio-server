@@ -52,6 +52,7 @@ model Project {
   title            String
   shortDescription String
   longDescription  String
+  thumbnail        String
   liveLink         String
   technologies     String[]
 
@@ -61,4 +62,20 @@ model Project {
   updatedAt DateTime @updatedAt
 
   @@map("projects")
+}
+
+model experience {
+  id          String   @id @default(uuid())
+  companyName String
+  position    String
+  startDate   DateTime
+  endDate     DateTime?
+  description String?
+
+  isDeleted Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("experiences")
 }

@@ -38,23 +38,19 @@ const updateExperience = async (
     );
   }
 
-  let startDate, endDate;
+  const updatedData = { ...payload };
   if (payload.startDate) {
-    startDate = dateHelpers.convertToISO(payload.startDate);
+    updatedData.startDate = dateHelpers.convertToISO(payload.startDate);
   }
   if (payload.endDate) {
-    endDate = dateHelpers.convertToISO(payload.endDate);
+    updatedData.endDate = dateHelpers.convertToISO(payload.endDate);
   }
 
   const result = await prisma.experience.update({
     where: {
       id,
     },
-    data: {
-      ...payload,
-      ...(startDate && { startDate }),
-      ...(endDate && { endDate }),
-    },
+    data: updatedData,
   });
   return result;
 };

@@ -1,7 +1,13 @@
 import { Router } from "express";
 import { AuthController } from "./auth.controller";
 import validateRequest from "../../middlewares/validateRequest";
-import { changePasswordValidationSchema, forgetPasswordValidationSchema, loginUserValidation, registerUserValidation, resetPasswordValidationSchema } from "./auth.validation";
+import {
+  changePasswordValidationSchema,
+  forgetPasswordValidationSchema,
+  loginUserValidation,
+  registerUserValidation,
+  resetPasswordValidationSchema,
+} from "./auth.validation";
 import auth from "../../middlewares/auth";
 
 const AuthRoutes = Router();
@@ -34,5 +40,6 @@ AuthRoutes.put(
   AuthController.changePassword,
 );
 AuthRoutes.get("/get-me", auth(), AuthController.getMe);
+AuthRoutes.post("/logout", AuthController.logout);
 
 export default AuthRoutes;

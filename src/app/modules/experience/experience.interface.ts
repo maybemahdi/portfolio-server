@@ -1,7 +1,7 @@
 export interface ICreateExperience {
     companyName: string;
     position: string;
-    startDate: Date;
-    endDate?: Date;
+    startDate: string;
+    endDate?: string;
     description?: string;
 }

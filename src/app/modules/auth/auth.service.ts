@@ -36,11 +36,11 @@ const registerUser = async (payload: IRegisterUser) => {
 const loginUser = async (payload: ILoginUser) => {
   const user = await isUserExistsByEmail(payload.email);
   if (!user) {
-    throw new AppError(httpStatus.UNAUTHORIZED, "Invalid email or password");
+    throw new AppError(httpStatus.NOT_FOUND, "Invalid email or password");
   }
   const isPasswordValid = await bcrypt.compare(payload.password, user.password);
   if (!isPasswordValid) {
-    throw new AppError(httpStatus.UNAUTHORIZED, "Invalid email or password");
+    throw new AppError(httpStatus.NOT_FOUND, "Invalid email or password");
   }
   const accessToken = jwtHelpers.generateToken(
     { id: user.id, email: user.email },

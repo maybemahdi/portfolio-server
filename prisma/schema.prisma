@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id        String   @id @default(uuid())
+  id        String   @id @default(cuid()) @map("_id")
   name      String
   email     String   @unique
   password  String
@@ -20,7 +20,7 @@ model User {
 }
 
 model Blog {
-  id          String   @id @default(uuid())
+  id          String   @id @default(cuid()) @map("_id")
   title       String
   content     String
   thumbnail   String
@@ -36,7 +36,7 @@ model Blog {
 }
 
 model Skill {
-  id        String  @id @default(uuid())
+  id        String  @id @default(cuid()) @map("_id")
   name      String
   logo      String
   isDeleted Boolean @default(false)
@@ -48,7 +48,7 @@ model Skill {
 }
 
 model Project {
-  id               String   @id @default(uuid())
+  id               String   @id @default(uuid()) @map("_id")
   title            String
   shortDescription String
   longDescription  String
@@ -65,7 +65,7 @@ model Project {
 }
 
 model Experience {
-  id          String   @id @default(uuid())
+  id          String    @id @default(uuid()) @map("_id")
   companyName String
   position    String
   startDate   DateTime

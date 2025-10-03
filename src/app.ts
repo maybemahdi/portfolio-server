@@ -14,6 +14,9 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:3001",
+      "https://mahdihasan.vercel.app",
+      "https://mahdihasanmahi.vercel.app",
+      "https://dev-mahdi.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
